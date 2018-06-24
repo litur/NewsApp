@@ -76,9 +76,15 @@ public final class ConnectionUtils {
                 mWeburl = currentNews.optString("webUrl");
                 mDateString = currentNews.optString("webPublicationDate").substring(0, 10);
                 mDate = Utility.convertStringToDate(mDateString, "yyyy-MM-dd");
-                // Name of the author. Using optString we receive a null value if the field doesn't exist
-                object_in_tags = tags.getJSONObject(0);
-                mAuthor = object_in_tags.optString("webTitle");
+                // Name of the author. If the Tags JSONObject doesn't exist, we assign a null value to the
+                // mAuthor property. This null value is properly handled by the PieceOfNewsAdapter
+                object_in_tags = tags.optJSONObject(0);
+                if (object_in_tags != null) {
+                    mAuthor = object_in_tags.optString("webTitle");
+                } else {
+                    Log.e("QueryUtils", "Retrieved null TagsObject");
+                    mAuthor = null;
+                }
 
                 news.add(new PieceOfNews(mTitle, mTrailText, mAuthor, mWeburl, mPillarName, mSectionName, mDate));
             }
@@ -88,7 +94,7 @@ public final class ConnectionUtils {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
+            Log.e("QueryUtils", "Problem parsing the news JSON results", e);
         }
 
         // Return the list of news
