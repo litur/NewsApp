@@ -66,6 +66,13 @@ public class PieceOfNewsAdapter extends ArrayAdapter {
         TextView pillarSectionTv = listItemView.findViewById(R.id.pillarSectionTV);
         pillarSectionTv.setText(currentNews.getPillarandSectionName());
 
+        //gets the trailText TV and sets a value on it
+        TextView AuthorTV = listItemView.findViewById(R.id.authorTV);
+        if (currentNews.getAuthor() != null)
+            AuthorTV.setText(currentNews.getAuthor());
+        else
+            AuthorTV.setVisibility(View.GONE);
+
         //gets the Date TV nd sets a value on it
         TextView dateTV = listItemView.findViewById(R.id.dateTV);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");

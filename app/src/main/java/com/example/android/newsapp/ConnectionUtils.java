@@ -51,8 +51,11 @@ public final class ConnectionUtils {
             JSONObject baseJsonResponse = new JSONObject(myNewsJSON);
             JSONObject newBaseJsonResponse = baseJsonResponse.getJSONObject("response");
             JSONArray newsArray = newBaseJsonResponse.getJSONArray("results");
+            JSONArray tags;
+            JSONObject object_in_tags;
             String mTitle;
             String mTrailText = "";
+            String mAuthor;
             String mWeburl;
             String mPillarName;
             String mSectionName;
@@ -62,19 +65,22 @@ public final class ConnectionUtils {
             for (int i = 0; i < newsArray.length(); i++) {
                 JSONObject currentNews = newsArray.getJSONObject(i);
                 JSONObject fieldsObject = currentNews.getJSONObject("fields");
+                tags = currentNews.getJSONArray("tags");
 
                 mTitle = currentNews.getString("webTitle");
-                // Since trailText is an optional field, we add a check on the Onbject
+                // Since trailText is an optional field, we add a check on the Object
                 if (fieldsObject != null)
-                    mTrailText = fieldsObject.getString("trailText");
-                mPillarName = currentNews.getString("pillarName");
-                mSectionName = currentNews.getString("sectionName");
-                mWeburl = currentNews.getString("webUrl");
-                mDateString = currentNews.getString("webPublicationDate").substring(0, 10);
+                    mTrailText = fieldsObject.optString("trailText");
+                mPillarName = currentNews.optString("pillarName");
+                mSectionName = currentNews.optString("sectionName");
+                mWeburl = currentNews.optString("webUrl");
+                mDateString = currentNews.optString("webPublicationDate").substring(0, 10);
                 mDate = Utility.convertStringToDate(mDateString, "yyyy-MM-dd");
-                //mTitle = "News number " + String.valueOf(i) ;
+                // Name of the author. Using optString we receive a null value if the field doesn't exist
+                object_in_tags = tags.getJSONObject(0);
+                mAuthor = object_in_tags.optString("webTitle");
 
-                news.add(new PieceOfNews(mTitle, mTrailText, mWeburl, mPillarName, mSectionName, mDate));
+                news.add(new PieceOfNews(mTitle, mTrailText, mAuthor, mWeburl, mPillarName, mSectionName, mDate));
             }
 
 

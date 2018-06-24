@@ -11,6 +11,7 @@ public class PieceOfNews {
     private String title;
     // trailText is a short text to introduce the news under the title
     private String trailText;
+    private String author;
     private String weburl;
     private String pillarName;
     private String sectionName;
@@ -19,10 +20,11 @@ public class PieceOfNews {
     /**
      * Constructs a new PieceOfNews with  values for title, weburl, pillarName, sectionName, date
      */
-    public PieceOfNews(String mTitle, String mTrailText, String mWeburl, String mPillarName, String mSectionName, Date mDate) {
+    public PieceOfNews(String mTitle, String mTrailText, String mAuthor, String mWeburl, String mPillarName, String mSectionName, Date mDate) {
 
         title = mTitle;
         trailText = mTrailText;
+        author = mAuthor;
         weburl = mWeburl;
         pillarName = mPillarName;
         sectionName = mSectionName;
@@ -35,6 +37,10 @@ public class PieceOfNews {
 
     public String getTrailText() {
         return trailText;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 
     public String getWeburl() {
