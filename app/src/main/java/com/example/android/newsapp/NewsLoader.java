@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 public class NewsLoader extends android.support.v4.content.AsyncTaskLoader<ArrayList<PieceOfNews>> {
-    public static final String LOG_TAG = NewsLoader.class.getName();
+    private static final String LOG_TAG = NewsLoader.class.getName();
     private String myURL;
 
     public NewsLoader(@NonNull Context context, String url) {

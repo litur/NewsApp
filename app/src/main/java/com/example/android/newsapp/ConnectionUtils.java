@@ -91,6 +91,9 @@ public final class ConnectionUtils {
 
     /**
      * Returns a new URL object from the given string URL.
+     * @param stringUrl a String representing a URL
+     * @return a valid URL Object
+     *
      */
     public static URL createUrl(String stringUrl) {
         URL url;
@@ -170,7 +173,7 @@ public final class ConnectionUtils {
     /**
      * Checks wether an internet connection is available on the device
      *
-     * @param context
+     * @param context the context from which the method is called
      * @return isConnected, true or false
      */
     public static boolean checkInternetConnection(Context context) {

@@ -8,5 +8,10 @@ public final class Constants {
      */
     public static final int NEWS_LOADER_ID = 1;
 
-    public final static String GUARDIANAPIURL = "https://content.guardianapis.com/search?section=sport&show-fields=trailText&from-date=2018-06-01&api-key=aec3a9a6-eb54-486b-a7a5-c6c9fef9fced";
+    /**
+     * a String containing the URL to call the Guardian API to retrieve the needed data.
+     * Please insert your own api-key
+     * Changing the parameters of the query may produce errors in the app, in particular in the extractNews method and in the PieceOfNewsAdapter
+     */
+    public final static String GUARDIANAPIURL = "https://content.guardianapis.com/search?section=sport&show-fields=trailText&from-date=2018-06-01&api-key=test";
 }

@@ -21,13 +21,12 @@ import java.util.ArrayList;
  */
 public class NewsFragment extends android.support.v4.app.Fragment implements android.support.v4.app.LoaderManager.LoaderCallbacks<ArrayList<PieceOfNews>> {
 
-    public static final String LOG_TAG = NewsFragment.class.getName();
-    public ListView myListView;
-    public TextView myEmptyView;
-    public ProgressBar myProgressBar;
-    public FloatingActionButton myRefreshButton;
+    private ListView myListView;
+    private TextView myEmptyView;
+    private ProgressBar myProgressBar;
+    private FloatingActionButton myRefreshButton;
 
-    PieceOfNewsAdapter adapter;
+    private PieceOfNewsAdapter adapter;
 
     public NewsFragment() {
         // Required empty public constructor
@@ -40,7 +39,7 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
         View rootView = inflater.inflate(R.layout.fragment_news, container, false);
         myProgressBar = rootView.findViewById(R.id.progressBar);
         myEmptyView = rootView.findViewById(R.id.empty_view);
-        myListView = (ListView) rootView.findViewById(R.id.list);
+        myListView = rootView.findViewById(R.id.list);
         myRefreshButton = rootView.findViewById(R.id.refresh_button);
 
         myListView.setDividerHeight(0);

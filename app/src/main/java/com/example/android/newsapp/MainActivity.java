@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         myActionBar.setElevation(8);
 
         // Finds the view pager that will allow the user to swipe between fragments
-        ViewPager viewPager = (ViewPager) findViewById(R.id.my_viewpager);
+        ViewPager viewPager = findViewById(R.id.my_viewpager);
 
         // Creates an adapter that knows which fragment should be shown on each page
         SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(this, getSupportFragmentManager());
