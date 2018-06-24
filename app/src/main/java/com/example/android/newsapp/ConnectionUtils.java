@@ -115,7 +115,7 @@ public final class ConnectionUtils {
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-    public static String makeHttpRequest(URL url, Context context) throws IOException {
+    public static String makeHttpRequest(URL url) throws IOException {
 
         // Introduces a delay on the Thread, for study purpose only,
         // It makes easier to check the behaviour of the app
@@ -136,7 +136,7 @@ public final class ConnectionUtils {
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.connect();
             ResponseCode = urlConnection.getResponseCode();
-            if (ResponseCode == 200) {
+            if (ResponseCode == HttpURLConnection.HTTP_OK) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
             } else {
@@ -177,7 +177,7 @@ public final class ConnectionUtils {
     }
 
     /**
-     * Checks wether an internet connection is available on the device
+     * Checks whether an internet connection is available on the device
      *
      * @param context the context from which the method is called
      * @return isConnected, true or false

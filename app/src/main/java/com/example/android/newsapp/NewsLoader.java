@@ -24,7 +24,7 @@ public class NewsLoader extends android.support.v4.content.AsyncTaskLoader<Array
     public ArrayList<PieceOfNews> loadInBackground() {
 
         String myNews = null;
-        ArrayList<PieceOfNews> myNewsArrayList = new ArrayList<>();
+        ArrayList<PieceOfNews> myNewsArrayList;
 
         // Don't perform the request if there are no URLs, or the first URL is null.
         if ((myURL == null) || myURL.equals("")) {
@@ -42,7 +42,7 @@ public class NewsLoader extends android.support.v4.content.AsyncTaskLoader<Array
 
         // Performs the HTTP request for news data and process the response.
         try {
-            myNews = ConnectionUtils.makeHttpRequest(GuardianURL, getContext());
+            myNews = ConnectionUtils.makeHttpRequest(GuardianURL);
         } catch (IOException e) {
             e.printStackTrace();
         }
