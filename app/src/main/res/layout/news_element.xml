@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/eventFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        style="@style/myCardViewStyle">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_light">
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/titleTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_dimen"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Italy vows to 'send home' undocumented immigrants" />
+
+            <!-- TrailText -->
+            <TextView
+                android:id="@+id/trailTextTV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/small_dimen"
+                android:paddingRight="@dimen/small_dimen"
+                android:paddingTop="0dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleTV"
+                tools:text="Italy vows to 'send home' undocumented immigrants" />
+
+            <!-- Pillar and section -->
+            <TextView
+                android:id="@+id/pillarSectionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/small_dimen"
+                android:layout_marginLeft="@dimen/small_dimen"
+                android:layout_marginStart="@dimen/small_dimen"
+                android:layout_marginTop="@dimen/xsmall_dimen"
+                android:textColor="#C70000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trailTextTV"
+                tools:text="News/News from the World" />
+
+            <!-- Date -->
+            <TextView
+                android:id="@+id/dateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/small_dimen"
+                android:layout_marginStart="@dimen/small_dimen"
+                android:textColor="#C70000"
+                app:layout_constraintBottom_toBottomOf="@+id/pillarSectionTV"
+                app:layout_constraintStart_toEndOf="@+id/pillarSectionTV"
+                tools:text="17/06/2018" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

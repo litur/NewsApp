@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="settings">Settings</string>
+    <string name="search">Search</string>
+    <string name="mainActivity_title">Sport News</string>
+    <string name="noDataMsg">No data found</string>
+    <string name="check_connection_msg">It seems your device is offline. Please check your internet connection.</string>
+</resources>
