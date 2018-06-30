@@ -147,8 +147,9 @@ public final class ConnectionUtils {
                 jsonResponse = readFromStream(inputStream);
             } else {
                 jsonResponse = "";
+                Log.e("My error", "Wrong Connection result" + String.valueOf(ResponseCode));
             }
-            Log.e("My error", "Wrong Connection result" + String.valueOf(ResponseCode));
+
         } catch (IOException e) {
             Log.e("My error", "IOException HTTPrequest" + e.toString());
         } finally {

@@ -1,0 +1,83 @@
+package com.example.android.newsapp;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.ListPreference;
+import android.preference.Preference;
+import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class SettingsActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
+
+        // Sets the Toolbar as Action Bar
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        // Defines custom behaviour on the Action Bar
+        ActionBar myActionBar = getSupportActionBar();
+        assert myActionBar != null;
+        myActionBar.setTitle(R.string.title_activity_settings);
+        myActionBar.setElevation(8);
+
+    }
+
+    // Inflates buttons in the action bar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+
+        //Hides the settings button, since we're in the settings activity
+        MenuItem settings_item = menu.findItem(R.id.action_settings);
+        settings_item.setVisible(false);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public static class NewsPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.settings_main);
+
+            Preference minDate = findPreference("min_date");
+            bindPreferenceSummaryToValue(minDate);
+
+            Preference order_by = findPreference("order_by");
+            bindPreferenceSummaryToValue(order_by);
+        }
+
+        @Override
+        public boolean onPreferenceChange(Preference preference, Object value) {
+            // The code in this method takes care of updating the displayed preference summary after it has been changed
+            String stringValue = value.toString();
+            if (preference instanceof ListPreference) {
+                ListPreference listPreference = (ListPreference) preference;
+                int prefIndex = listPreference.findIndexOfValue(stringValue);
+                if (prefIndex >= 0) {
+                    CharSequence[] labels = listPreference.getEntries();
+                    preference.setSummary(labels[prefIndex]);
+                }
+            } else {
+                preference.setSummary(stringValue);
+            }
+            return true;
+        }
+
+        private void bindPreferenceSummaryToValue(Preference preference) {
+            preference.setOnPreferenceChangeListener(this);
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
+            String preferenceString = preferences.getString(preference.getKey(), "");
+            onPreferenceChange(preference, preferenceString);
+        }
+    }
+}

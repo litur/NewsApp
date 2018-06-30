@@ -76,7 +76,7 @@ public class PieceOfNewsAdapter extends ArrayAdapter {
 
         //gets the Date TV and sets a value on it
         TextView dateTV = listItemView.findViewById(R.id.dateTV);
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String myDate = formatter.format(currentNews.getDate());
         dateTV.setText(myDate);
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/title_activity_settings">
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/settings_category_date_label">
+        <EditTextPreference
+            android:defaultValue="@string/settings_min_date_default"
+            android:inputType="date"
+            android:key="@string/settings_min_date_key"
+            android:selectAllOnFocus="true"
+            android:title="@string/settings_min_date_label" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="pref_key_storage_settings"
+        android:title="@string/settings_category_others_label">
+        <ListPreference
+            android:defaultValue="@string/settings_order_by_default"
+            android:entries="@array/settings_order_by_labels"
+            android:entryValues="@array/settings_order_by_values"
+            android:key="@string/settings_order_by_key"
+            android:title="@string/settings_order_by_label" />
+    </PreferenceCategory>
+</PreferenceScreen>
+
