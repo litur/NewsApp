@@ -62,4 +62,3 @@ public class PieceOfNews {
             return (pillarName + "/" + sectionName);
     }
 }
-

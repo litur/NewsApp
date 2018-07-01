@@ -31,7 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
         myActionBar.setElevation(8);
         // Displays the Up button in the Action Bar
         myActionBar.setDisplayHomeAsUpEnabled(true);
-
+        myActionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
     }
 
     // Inflates buttons in the action bar

@@ -117,8 +117,8 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
                 getString(R.string.settings_max_date_key),
                 getString(R.string.settings_max_date_default));
 
-        // If the user hasn't left empty the value defined for the minimum date
         try {
+            // If the user hasn't left empty the value defined for the minimum date
             if (!minDate.equals("")) {
                 //converts the format of the DateString in the one required by the Guardian API
                 Date minDateDate = Utility.convertStringToDate(minDate, "dd/MM/yyyy");
@@ -132,8 +132,8 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
             Log.e(LOG_TAG, "Error with the minimun publication date");
         }
 
-        // If the user hasn't left empty the value defined for the maximum date
         try {
+            // If the user hasn't left empty the value defined for the maximum date
             if (!maxDate.equals("")) {
                 //converts the format of the DateString in the one required by the Guardian API
                 Date maxDateDate = Utility.convertStringToDate(maxDate, "dd/MM/yyyy");
@@ -206,6 +206,5 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
         adapter.clear();
 
     }
-
 
 }

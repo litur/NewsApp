@@ -33,8 +33,6 @@ public final class ConnectionUtils {
     private ConnectionUtils() {
     }
 
-    /*    */
-
     /**
      * Return a list of {@link PieceOfNews} objects that has been built up from
      * parsing a JSON response.
@@ -103,9 +101,9 @@ public final class ConnectionUtils {
 
     /**
      * Returns a new URL object from the given string URL.
+     *
      * @param stringUrl a String representing a URL
      * @return a valid URL Object
-     *
      */
     public static URL createUrl(String stringUrl) {
         URL url;

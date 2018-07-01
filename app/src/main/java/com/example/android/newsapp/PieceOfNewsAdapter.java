@@ -71,7 +71,7 @@ public class PieceOfNewsAdapter extends ArrayAdapter {
         if (currentNews.getAuthor() != null)
             AuthorTV.setText(currentNews.getAuthor());
         else
-            // if non author is specified for the Piec of News, the AuthorTV is hidden
+            // if no author is specified for the Piece of News, the AuthorTV is hidden
             AuthorTV.setVisibility(View.GONE);
 
         //gets the Date TV and sets a value on it
