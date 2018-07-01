@@ -12,4 +12,18 @@
         <item>@string/settings_order_by_oldest_value</item>
     </string-array>
 
+    <string-array name="settings_production_office_labels">
+        <item>@string/settings_production_office_All_label</item>
+        <item>@string/settings_production_office_UK_label</item>
+        <item>@string/settings_production_office_US_label</item>
+        <item>@string/settings_production_office_AUS_label</item>
+    </string-array>
+
+    <string-array name="settings_production_office_values">
+        <item>@string/settings_production_office_All_value</item>
+        <item>@string/settings_production_office_UK_value</item>
+        <item>@string/settings_production_office_US_value</item>
+        <item>@string/settings_production_office_AUS_value</item>
+    </string-array>
+
 </resources>

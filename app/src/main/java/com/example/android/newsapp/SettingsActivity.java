@@ -6,6 +6,7 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -28,6 +29,8 @@ public class SettingsActivity extends AppCompatActivity {
         assert myActionBar != null;
         myActionBar.setTitle(R.string.title_activity_settings);
         myActionBar.setElevation(8);
+        // Displays the Up button in the Action Bar
+        myActionBar.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -43,6 +46,18 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Implements the Up Button functionality as explained in https://developer.android.com/training/implementing-navigation/ancestral
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public static class NewsPreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -52,8 +67,14 @@ public class SettingsActivity extends AppCompatActivity {
             Preference minDate = findPreference("min_date");
             bindPreferenceSummaryToValue(minDate);
 
+            Preference maxDate = findPreference("max_date");
+            bindPreferenceSummaryToValue(maxDate);
+
             Preference order_by = findPreference("order_by");
             bindPreferenceSummaryToValue(order_by);
+
+            Preference production_office = findPreference("production_office");
+            bindPreferenceSummaryToValue(production_office);
         }
 
         @Override
@@ -68,6 +89,8 @@ public class SettingsActivity extends AppCompatActivity {
                     preference.setSummary(labels[prefIndex]);
                 }
             } else {
+                if (stringValue.equals(""))
+                    stringValue = getString(R.string.settings_value_not_defined);
                 preference.setSummary(stringValue);
             }
             return true;
