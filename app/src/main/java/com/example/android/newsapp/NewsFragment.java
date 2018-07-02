@@ -156,6 +156,11 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
                 getString(R.string.settings_production_office_default)
         );
 
+        String section = sharedPrefs.getString(
+                getString(R.string.settings_section_key),
+                getString(R.string.settings_section_default)
+        );
+
         // parse breaks apart the URI string that's passed into its parameter
         Uri baseUri = Uri.parse(Constants.GUARDIANAPIURL);
         // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
@@ -170,8 +175,13 @@ public class NewsFragment extends android.support.v4.app.Fragment implements and
             uriBuilder.appendQueryParameter("to-date", maxDate);
 
         uriBuilder.appendQueryParameter("order-by", orderBy);
+
         if (!productionOffice.equals("all"))
             uriBuilder.appendQueryParameter("production-office", productionOffice);
+
+        if (!section.equals("all"))
+            uriBuilder.appendQueryParameter("section", section);
+
         uriBuilder.appendQueryParameter("api-key", Constants.APIKEY);
 
         Log.e(LOG_TAG, uriBuilder.toString());

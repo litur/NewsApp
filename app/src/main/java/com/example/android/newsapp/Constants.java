@@ -13,7 +13,7 @@ public final class Constants {
      * Please insert your own api-key
      * Changing the parameters of the query may produce errors in the app, in particular in the extractNews method and in the PieceOfNewsAdapter
      */
-    public final static String GUARDIANAPIURL = "https://content.guardianapis.com/search?section=sport&show-fields=trailText&show-tags=contributor";
+    public final static String GUARDIANAPIURL = "https://content.guardianapis.com/search?show-fields=trailText&show-tags=contributor";
     public final static String APIKEY = "test";
 
 }

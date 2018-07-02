@@ -75,6 +75,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             Preference production_office = findPreference("production_office");
             bindPreferenceSummaryToValue(production_office);
+
+            Preference section = findPreference("section");
+            bindPreferenceSummaryToValue(section);
         }
 
         @Override

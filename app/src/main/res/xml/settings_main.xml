@@ -34,6 +34,12 @@
             android:entryValues="@array/settings_production_office_values"
             android:key="@string/settings_production_office_key"
             android:title="@string/settings_production_office_label" />
+        <ListPreference
+            android:defaultValue="@string/settings_section_default"
+            android:entries="@array/settings_section_labels"
+            android:entryValues="@array/settings_section_values"
+            android:key="@string/settings_section_key"
+            android:title="@string/settings_section_label" />
     </PreferenceCategory>
 </PreferenceScreen>
 

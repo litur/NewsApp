@@ -26,4 +26,20 @@
         <item>@string/settings_production_office_AUS_value</item>
     </string-array>
 
+    <string-array name="settings_section_labels">
+        <item>@string/settings_section_All_label</item>
+        <item>@string/settings_section_business_label</item>
+        <item>@string/settings_section_music_label</item>
+        <item>@string/settings_section_politics_label</item>
+        <item>@string/settings_section_sport_label</item>
+    </string-array>
+
+    <string-array name="settings_section_values">
+        <item>@string/settings_section_All_value</item>
+        <item>@string/settings_section_business_value</item>
+        <item>@string/settings_section_music_value</item>
+        <item>@string/settings_section_politics_value</item>
+        <item>@string/settings_section_sport_value</item>
+    </string-array>
+
 </resources>

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">NewsApp</string>
     <string name="search">Search</string>
-    <string name="mainActivity_title">Sport News</string>
+    <string name="mainActivity_title">The Guardian - News</string>
     <string name="noDataMsg">No data found</string>
     <string name="check_connection_msg">It seems your device is offline. Please check your internet connection.</string>
 
@@ -49,8 +49,30 @@
     <!-- Label for Production Office USA option [CHAR LIMIT=20] -->
     <string name="settings_production_office_US_label">USA</string>
     <string name="settings_production_office_US_value" translatable="false">us</string>
-    <!-- Label for order-by oldest option [CHAR LIMIT=20] -->
+    <!-- Label for Production Office Australia option [CHAR LIMIT=20] -->
     <string name="settings_production_office_AUS_label">Australia</string>
     <string name="settings_production_office_AUS_value" translatable="false">aus</string>
+
+    <!-- Strings For Section Preference [CHAR LIMIT=30] -->
+    <string name="settings_section_label">Section</string>
+    <string name="settings_section_key" translatable="false">section</string>
+    <string name="settings_section_default" translatable="false">@string/settings_section_All_value</string>
+
+    <!-- Label for Section ALL option [CHAR LIMIT=20] -->
+    <string name="settings_section_All_label">All</string>
+    <string name="settings_section_All_value" translatable="false">all</string>
+    <!-- Label for Section Business option [CHAR LIMIT=20] -->
+    <string name="settings_section_business_label">Business</string>
+    <string name="settings_section_business_value" translatable="false">business</string>
+    <!-- Label for Section Music option [CHAR LIMIT=20] -->
+    <string name="settings_section_music_label">Music</string>
+    <string name="settings_section_music_value" translatable="false">music</string>
+    <!-- Label for Section Politics option [CHAR LIMIT=20] -->
+    <string name="settings_section_politics_label">Politics</string>
+    <string name="settings_section_politics_value" translatable="false">politics</string>
+    <!-- Label for Section Sport option [CHAR LIMIT=20] -->
+    <string name="settings_section_sport_label">Sport</string>
+    <string name="settings_section_sport_value" translatable="false">sport</string>
+
 
 </resources>
